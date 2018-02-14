@@ -38,8 +38,16 @@ d3.json("countries.topo.json", function(error, us) {
         .enter()
         .append("path")
         .attr("id", function(d) { return d.id; })
-        .attr("style", function(d){if(countryData.includes(d.id) == false){return "pointer-events:none";} })
-        .style({"fill": function(d){ if(countryData.includes(d.id) == false){return "grey";}}, "pointer-events":function(d){ if(countryData.includes(d.id) == false){return "none";}}})
+        .style({"fill": function(d){ 
+            if(countryData.includes(d.id) == false){
+                return "grey";
+            }
+        }, "pointer-events":function(d){ 
+                if(countryData.includes(d.id) == false){
+                    return "none";
+                }
+            }
+        })
         .attr("d", path)
         .on("click", country_clicked)
         .on("mouseover", handleMouseOver)
@@ -50,63 +58,80 @@ d3.json("countries.topo.json", function(error, us) {
             d3.select(this).attr({
               fill: "#2c7"
             });
-            svg.append("text")
-            .attr("id", d.id)
-            .attr("x", "50%")
-            .attr("y", "50%")
-            .text(d.properties.name); 
+
           }
             function handleMouseOut(d) {
             d3.select(this).attr({
               fill: "#2a3"
             });
-           d3.select("text").remove();
+           
           }
-    function zoom(xyz) {
+    
+    function zoomed(d){
+        cText = d.properties.name;
+        d3.select("#countryDiv")
+        .style({"display": "block", "font-size": "30px", "font-weight": "bold"})
+        .text(d.properties.name);
+        
+    }
+    
+    function zoom(xyz, d) {
       g.transition()
         .duration(750)
-        .attr("transform", "translate(" + projection.translate() + ")scale(" + xyz[2] + ")translate(-" + xyz[0] + ",-" + xyz[1] + ")")
+        .attr("transform", "translate(" + projection.translate()  + ")scale(" + xyz[2] + ")translate(-" + xyz[0] + ",-" + xyz[1] + ")")
         .selectAll(["#countries", "#states", "#cities"])
         .style("stroke-width", 1.0 / xyz[2] + "px")
         .selectAll(".city")
         .attr("d", path.pointRadius(20.0 / xyz[2]));
+        if(d){
+            setTimeout(1500);
+            zoomed(d);
+            
+        }
+        
     }
     
     function get_xyz(d) {
       var bounds = path.bounds(d);
       var w_scale = (bounds[1][0] - bounds[0][0]) / width;
       var h_scale = (bounds[1][1] - bounds[0][1]) / height;
-      var z = .96 / Math.max(w_scale, h_scale);
-      var x = (bounds[1][0] + bounds[0][0]) / 2;
+      var z = (.96 / Math.max(w_scale, h_scale))/2;
+        
+      var x = ((bounds[1][0] + bounds[0][0]) / 2) + (width / z / 3);
       var y = (bounds[1][1] + bounds[0][1]) / 2 + (height / z / 6);
       return [x, y, z];
     }
 
     function country_clicked(d) {
       state = null;
-
       if (country) {
         g.selectAll("#" + country.id).style('display', null);
       }
 
       if (d && country !== d) {
+        var xyz = get_xyz(d);
+        country = d;
         d3.selectAll("path")
+          //.style({"visibility": "hidden"});
           .style({"visibility": function(a){
             if(a.id != d.id){
                 return "hidden";
+            } else{
+                return "visible";
             }
         }});
-          
-        var xyz = get_xyz(d);
-        country = d;
-        zoom(xyz);
+        zoom(xyz,d);
       } else {
         var xyz = [width / 2, height / 1.5, 1];
         country = null;
         zoom(xyz);
         d3.selectAll("path")
           .style({"visibility": "visible"});
+        d3.select("#countryDiv")
+        .style("display", "none");
       }
+
+ 
     }
 
     $(window).resize(function() {

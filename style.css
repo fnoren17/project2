@@ -27,3 +27,10 @@
       margin-bottom: 0;
       padding: 9.5px;
     }
+#countryDiv {
+    width: auto;
+    height: auto;
+    float: right;
+    background-color: blue;
+    display: none;
+}
