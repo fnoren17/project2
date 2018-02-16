@@ -1,10 +1,9 @@
-id,Question,Very important,Rather important,Not very important,Not at all important,Don´t know
-POL,Politics,"5.3","27.5","44.9","21.8","0.5"
-SWE,Politics,"5.3","27.5","44.9","21.8","0.5"
-USA,Politics,"5.3","27.5","44.9","21.8","0.5"
-DEU,Politics,"5.3","27.5","44.9","21.8","0.5"
-AFG,Politics,"5.3","27.5","44.9","21.8","0.5"
-CAN,Politics,"5.3","27.5","44.9","21.8","0.5"
-AUS,Politics,"5.3","27.5","44.9","21.8","0.5"
-CHN,Politics,"5.3","27.5","44.9","21.8","0.5"
-GRC,Politics,"5.3","27.5","44.9","21.8","0.5"
+id,Question,data,posx,posy
+Poland,Politics,10.5-27.5-44.9-21.8-15.5,50,100
+Sweden,Politics,0-8.3-27.5-44.9-21.8-0.5-7-5-8-9,150,100
+United States,Politics,0-12.3-27.5-44.9-21.8-0.5,50,200
+Germany,Politics,0-27.3-27.5-44.9-21.8-0.5,150,200
+Afghanistan,Politics,0-9.3-27.5-44.9-21.8-0.5,50,300
+Canada,Politics,0-5.3-27.5-44.9-21.8-0.5,150,300
+Australia,Politics,0-3.3-27.5-44.9-21.8-0.5,50,400
+China,Politics,0-6.3-27.5-44.9-21.8-0.5,150,400

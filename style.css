@@ -1,6 +1,10 @@
 #map {
-      background-color: #fff;
-      border: 1px solid #ccc;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    
     }
     .background {
       fill: none;
@@ -28,9 +32,9 @@
       padding: 9.5px;
     }
 #countryDiv {
-    width: auto;
-    height: auto;
-    float: right;
-    background-color: blue;
+    width: 40%;
+    height: 100%;
+    margin-left: 500px;
     display: none;
+    position: absolute
 }
