@@ -82,6 +82,7 @@ var height = 900;
 var radius = 50;
         // Importance in life Family
         d3.csv("data3.csv", function(d) {
+            
             // strip out relevant fields
             var point = {};
             point.country = d.Country;
@@ -91,91 +92,100 @@ var radius = 50;
             point.not_at_all_important = +d["Not at all happy"];
             point.no_answer = d.NA;
             point.dont_know = d.DK;
+            point.xpos = d.xpos;
+            point.ypos = d.ypos;
             return point;
         }, function(error, data) {
-            console.log(country);
+            //console.log(country);
         
              //what country do you want to show?
-            data = data[8];
-            console.log(data.country); 
-            console.log(country);
+            for(i = 0; i < data.length; i++){
+                if(data[i].country == country.properties.name){
+                    data = data[i];
+                }
+            }
+           
             
             var dataset = [
-                {label: 'Very important', count: data.very_important},
-                {label: 'Rather Important', count: data.rather_important},
-                {label: 'Not very important', count: data.not_very_important},
-                {label: 'Not at all important', count: data.not_at_all_important},
-                {label: 'Dont know', count: data.dont_know},
-                {label: 'No answer', count: data.no_answer}
+                {label: "Very important", count: data.very_important},
+                {label: "Rather Important", count: data.rather_important},
+                {label: "Not very important", count: data.not_very_important},
+                {label: "Not at all important", count: data.not_at_all_important},
+                {label: "Dont know", count: data.dont_know},
+                {label: "No answer", count: data.no_answer}
                 
             ];
             
-            console.log(dataset)
+            //console.log(dataset)
 
-            var width = 400;
-            var height = 200;
+            var width = 640;
+            var height = 630;
             var margin = {top: 10, right: 10, bottom: 10, left: 10};
-            var radius = Math.min(width, height) / 2;
+            var radius = 50;
             var donutWidth = 50;
             var legendRectSize = 20;                                  
             var legendSpacing = 8;                                    
 
             var color = d3.scale.ordinal()
-              .range(['#c2f0f0', '#99e6e6', '#5cd6d6', '#2eb8b8', '#248f8f', '#196666']);
+              .range(["#c2f0f0", "#99e6e6", "#5cd6d6", "#2eb8b8", "#248f8f", "#196666"]);
             
-            var svg = d3.select('#countryDiv')                                             //ÄNDRA CHART HÄR
-              .append('svg')
-              .attr('width', width)
-              .attr('height', height)
-              .append('g')
-              .attr('transform', 'translate(' + (width / 4) +
-                ',' + (height / 2) + ')');
+            var svg = d3.select("#countryDiv")                                             //ÄNDRA CHART HÄR
+              .append("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .append("g")
+              .attr("transform", "translate(" + data.xpos + "," + data.ypos + ")");
 
             var arc = d3.svg.arc()
-              .innerRadius(radius - donutWidth)
               .outerRadius(radius);
 
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
 
-            var path = svg.selectAll('path')
+            var path = svg.selectAll("path")
               .data(pie(dataset))
               .enter()
-              .append('path')
-              .attr('d', arc)
-              .attr('fill', function(d) {
+              .append("path")
+              .attr("d", arc)
+              .attr("fill", function(d) {
                 return color(d.data.label);
-              });
+              })
+            .on("mouseover", function(d){
+                d3.select(this).style("visibility", "hidden")
+            })
+            .on("mouseout", function(d){
+                d3.select(this).style("visibility", "visible")
+            });
             
-//            svg.append('text')
-//              .attr('x', -55)
-//              .attr('y', -85)
-//              .text('Importance in life: Family');                                                          //ÄNDRA LABEL HÄR
+            svg.append("text")
+              .attr("x", -55)
+              .attr("y", -85)
+              .text("Importance in life: Family");                                                          //ÄNDRA LABEL HÄR
             
-//             var legend = svg.selectAll('.legend')                     
-//              .data(color.domain())                                   
-//              .enter()                                                
-//              .append('g')                                            
-//              .attr('class', 'legend')                                
-//              .attr('transform', function(d, i) {                     
-//                var height = legendRectSize + legendSpacing;          
-//                var offset =  height * color.domain().length / 2;     
-//                var horz = 6 * legendRectSize;                       
-//                var vert = i * height - offset;                       
-//                return 'translate(' + horz + ',' + vert + ')';        
-//              });                                                     
+             var legend = svg.selectAll(".legend")                     
+              .data(color.domain())                                   
+              .enter()                                                
+              .append("g")                                            
+              .attr("class", "legend")                                
+              .attr("transform", function(d, i) {                     
+                var height = legendRectSize + legendSpacing;          
+                var offset =  height * color.domain().length / 2;     
+                var horz = 6 * legendRectSize;                       
+                var vert = i * height - offset;                       
+                return "translate(" + horz + "," + vert + ")";        
+              });                                                     
 
-//            legend.append('rect')                                     
-//              .attr('width', legendRectSize)                          
-//              .attr('height', legendRectSize)                         
-//              .style('fill', color)                                   
-//              .style('stroke', color);                                
-//
-//            legend.append('text')                                     
-//              .attr('x', legendRectSize + legendSpacing)              
-//              .attr('y', legendRectSize - legendSpacing)              
-//              .text(function(d) { return d; });                       
+            legend.append("rect")                                     
+          .attr("width", legendRectSize)                          
+              .attr("height", legendRectSize)                         
+              .style("fill", color)                                   
+              .style("stroke", color);                                
+
+            legend.append("text")                                     
+              .attr("x", legendRectSize + legendSpacing)              
+              .attr("y", legendRectSize - legendSpacing)              
+              .text(function(d) { return d; });                       
 
         });
         
@@ -211,7 +221,7 @@ var radius = 50;
     function country_clicked(d) {
       state = null;
       if (country) {
-        g.selectAll("#" + country.id).style('display', null);
+        g.selectAll("#" + country.id).style("display", null);
       }
 
       if (d && country !== d) {
