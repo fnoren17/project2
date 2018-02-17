@@ -4,7 +4,7 @@ var m_width = $("#map").width(),
         country,
         state;
 
-d3.csv("/../data/data3.csv", function(loadedRows) {
+d3.csv("data/data3.csv", function(loadedRows) {
     var countryData = [];
     console.log(loadedRows);
     for (i = 0; i < loadedRows.length; i++ ){
@@ -81,7 +81,7 @@ var width = 960;
 var height = 900;
 var radius = 50;
         // Importance in life Family
-        d3.csv("/../data/data3.csv", function(d) {
+        d3.csv("data/data3.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
