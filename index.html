@@ -5,35 +5,18 @@
     <script src="https://code.jquery.com/jquery-2.0.0.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
       
-    <div id="map"><div id="countryDiv"></div></div>
-      
-    <select name="values" onchange="main(this)" >
-    <option value="1" selected="selected">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">Four</option>
-    <option value="5">Five</option>
-    <option value="6">Six</option>
-    <option value="7">Seven</option>
-    <option value="8">Eight</option>
-    <option value="9">Nine</option>
+    <div id="map"><div id="countryDiv"></div><div id="title"></div></div>
+    <script src="wave1.js"></script>
+<select onchange="main(this)">
+  <option value="1">Wave 1</option>
+  <option value="2">Wave 2</option>
+  <option value="3">Wave 3</option>
+  <option value="4">Wave 4</option>
 </select>
-            <script>
-
-main = function(input) {
-    var head = document.getElementsByTagName("head")[0],
-        script = document.createElement('script');
-        script.type = 'text/javascript'
-        script.src = "handler.js"
-        head.appendChild(script);
-       
-}
-
-
-      </script>
   </body>
 </html>
