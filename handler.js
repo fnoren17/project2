@@ -1,6 +1,6 @@
 function main(input){
     d3.select("#worldmap").remove();
-    console.log(input.value);
+    console.log(input);
 
     
     var m_width = $("#map").width(),
@@ -9,7 +9,7 @@ function main(input){
         country,
         state;
 
-    d3.csv("data/wave" + input.value + "/countries.csv", function(loadedRows) {
+    d3.csv("data/wave" + input + "/countries.csv", function(loadedRows) {
         var countryData = [];
         console.log(loadedRows);
         for (i = 0; i < loadedRows.length; i++ ){
@@ -90,7 +90,7 @@ var width = 960;
 var height = 900;
 var radius = 50;
         // Family Importance
-        d3.csv("data/wave" + input.value + "/family.csv", function(d) {
+        d3.csv("data/wave" + input + "/family.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -206,7 +206,7 @@ var radius = 50;
         //-------------------------------------------------------------------------------------------
         
         // Friends Importance
-        d3.csv("data/wave" + input.value + "/friends.csv", function(d) {
+        d3.csv("data/wave" + input + "/friends.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -320,7 +320,7 @@ var radius = 50;
         });
     //--------------------------------------------------------------------------------------------
          // Leisure Importance
-        d3.csv("data/wave" + input.value + "/leisure.csv", function(d) {
+        d3.csv("data/wave" + input + "/leisure.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -436,7 +436,7 @@ var radius = 50;
         //---------------------------------------------------------------------------------
         
          // Leisure Importance
-        d3.csv("data/wave" + input.value + "/politics.csv", function(d) {
+        d3.csv("data/wave" + input + "/politics.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -550,7 +550,7 @@ var radius = 50;
         });
         //------------------------------------------------------------------------------------------
          // Leisure Importance
-        d3.csv("data/wave" + input.value + "/religion.csv", function(d) {
+        d3.csv("data/wave" + input + "/religion.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -664,7 +664,7 @@ var radius = 50;
         });
         //_----------------------------------------------------------------------------------------
          // Leisure Importance
-        d3.csv("data/wave" + input.value + "/work.csv", function(d) {
+        d3.csv("data/wave" + input + "/work.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -778,7 +778,7 @@ var radius = 50;
         });
     //----------------------------------------------------------------------------------------------
          // Leisure Importance
-        d3.csv("data/wave" + input.value + "/happiness.csv", function(d) {
+        d3.csv("data/wave" + input + "/happiness.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
@@ -892,7 +892,7 @@ var radius = 50;
         });
         
         //--------------------------------------------------------------------------------------
-        d3.csv("data/wave" + input.value + "/health.csv", function(d) {
+        d3.csv("data/wave" + input + "/health.csv", function(d) {
             
             // strip out relevant fields
             var point = {};
