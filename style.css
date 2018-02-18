@@ -1,6 +1,5 @@
 #map {
     background-color: #fff;
-    border: 1px solid #ccc;
     width: 90%;
     height: 90%;
     
@@ -35,7 +34,7 @@
     height: 100%;
     display: none;
     position: absolute;
-    right: -20%;
+    right: -10%;
     top: 10%
 }
 
