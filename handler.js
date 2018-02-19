@@ -154,6 +154,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+        var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');                                      
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -163,12 +173,21 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+                        
+          .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          })                                                          
+          
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -270,6 +289,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -279,12 +308,20 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+            
+                      .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          }) 
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -384,6 +421,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -393,12 +440,20 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+            
+                      .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          }) 
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -500,6 +555,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -509,12 +574,19 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+                      .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          }) 
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -614,6 +686,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -623,12 +705,20 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+            
+                      .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          }) 
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -728,6 +818,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -737,12 +837,19 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+                                  .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          })
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
               .attr("class", "text")
@@ -842,6 +949,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+                 var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -851,12 +968,19 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+            tooltip.select('.label').html(d.data.label);                
+            tooltip.select('.count').html(d.data.count);                        
+            tooltip.style('display', 'block');                        
+          })
+                                  .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY + 5) + 'px')          
+              .style('left', (d3.event.pageX + 5) + 'px');             
+          })
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")
@@ -958,6 +1082,16 @@ var radius = 50;
             var pie = d3.layout.pie()
               .value(function(d) { return d.count; })
               .sort(null);
+                 
+        var tooltip = d3.select('#map')                               
+          .append('div')                                                
+          .attr('class', 'tooltip');                                    
+                      
+        tooltip.append('div')                                           
+          .attr('class', 'label');                                      
+        
+        tooltip.append('div')                                           
+          .attr('class', 'count');   
 
             var path = svg.selectAll("path")
               .data(pie(dataset))
@@ -967,12 +1101,19 @@ var radius = 50;
               .attr("fill", function(d) {
                 return color(d.data.label);
               })
-            .on("mouseover", function(d){
-                d3.select(this).style("visibility", "hidden")
-            })
+            .on('mouseover', function(d) {                            
+                tooltip.select('.label').html(d.data.label);                
+                tooltip.select('.count').html(d.data.count);                        
+                tooltip.style('display', 'block');                        
+          })
+                                  .on('mousemove', function(d) {                            
+            tooltip.style('top', (d3.event.pageY+5) + 'px')          
+              .style('left', (d3.event.pageX+5) + 'px');             
+          })
             .on("mouseout", function(d){
-                d3.select(this).style("visibility", "visible")
-            });
+                tooltip.style("display","none")
+            });                                                           
+
             
             svg.append("text")
                  .attr("class", "text")

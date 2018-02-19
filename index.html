@@ -9,15 +9,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-      
+      <form action="">
+    <input type="radio" name="wave" value="1" checked=checked onclick="pass(this)"> 1995-1999
+    <input type="radio" name="wave" value="2" onclick="pass(this)"> 2000-2004
+    <input type="radio" name="wave" value="3" onclick="pass(this)"> 2005-2009
+    <input type="radio" name="wave" value="4" onclick="pass(this)"> 2009-2014
+</form>
     <div id="map"><div id="countryDiv"></div><div id="title"></div></div>
     <script src="handler.js"></script>
-<form action="">
-    <input type="radio" name="wave" value="1" checked=checked onclick="pass(this)"> Wave 1
-    <input type="radio" name="wave" value="2" onclick="pass(this)"> Wave 2
-    <input type="radio" name="wave" value="3" onclick="pass(this)"> Wave 3
-    <input type="radio" name="wave" value="4" onclick="pass(this)"> Wave 4
-</form>
+
 <script>
     function pass(input){
         value = input.value;
