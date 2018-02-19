@@ -1,3 +1,4 @@
+var status = 0;
 function main(input){
     d3.select("#worldmap").remove();
     console.log(input);
@@ -15,6 +16,7 @@ function main(input){
         for (i = 0; i < loadedRows.length; i++ ){
             countryData.push(loadedRows[i].country);
         }
+        
         
         //HÄR ÄR DU
         var projection = d3.geo.mercator()
@@ -1159,6 +1161,7 @@ var radius = 50;
         .attr("d", path.pointRadius(20.0 / xyz[2]));
         if(d){
             setTimeout(1500);
+            status = 1;
             zoomed(d);
             
         }
