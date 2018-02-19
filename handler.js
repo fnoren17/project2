@@ -1185,6 +1185,7 @@ var radius = 50;
       if (d && country !== d) {
         var xyz = get_xyz(d);
         country = d;
+          $("input[type=radio]").attr('disabled', true);
         d3.selectAll("path")
           //.style({"visibility": "hidden"});
           .style({"visibility": function(a){
@@ -1210,6 +1211,7 @@ var radius = 50;
           d3.selectAll(".legend").remove();
           d3.selectAll(".text").remove();
            d3.selectAll(".svgC").remove();
+          $("input[type=radio]").attr('disabled', false);
           
       }
 
