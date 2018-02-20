@@ -193,9 +193,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Family");                                                          //ÄNDRA LABEL HÄR
+              .text("Family Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -327,9 +327,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Friends");                                                          //ÄNDRA LABEL HÄR
+              .text("Friends Impotrance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -459,9 +459,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Leisure");                                                          //ÄNDRA LABEL HÄR
+              .text("Leisure Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -592,9 +592,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Politics");                                                          //ÄNDRA LABEL HÄR
+              .text("Politics Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -724,9 +724,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Religion");                                                          //ÄNDRA LABEL HÄR
+              .text("Religion Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -855,9 +855,9 @@ var radius = 50;
             
             svg.append("text")
               .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Work");                                                          //ÄNDRA LABEL HÄR
+              .text("Work Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -986,9 +986,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Happiness");                                                          //ÄNDRA LABEL HÄR
+              .text("Happiness Inportance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -1119,9 +1119,9 @@ var radius = 50;
             
             svg.append("text")
                  .attr("class", "text")
-              .attr("x", -25)
+              .attr("x", -50)
               .attr("y", -85)
-              .text("Health");                                                          //ÄNDRA LABEL HÄR
+              .text("Health Importance");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
