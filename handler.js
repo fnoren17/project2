@@ -915,10 +915,10 @@ var radius = 50;
            
         console.log(data);
             var dataset = [
-                {label: "Very important", count: data.very_happy},
-                {label: "Rather important", count: data.quite_happy},
-                {label: "Not very important", count: data.not_very_happy},
-                {label: "Not at all important", count: data.not_at_all_happy},
+                {label: "Very happy", count: data.very_happy},
+                {label: "Quite happy", count: data.quite_happy},
+                {label: "Not very happy", count: data.not_very_happy},
+                {label: "Not at all hapy", count: data.not_at_all_happy},
                 {label: "Don't know", count: data.dont_know},
                 {label: "No answer", count: data.no_answer}
                 
