@@ -988,7 +988,7 @@ var radius = 50;
                  .attr("class", "text")
               .attr("x", -50)
               .attr("y", -85)
-              .text("Happiness Inportance");                                                          //ÄNDRA LABEL HÄR
+              .text("Happiness");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
@@ -1121,7 +1121,7 @@ var radius = 50;
                  .attr("class", "text")
               .attr("x", -50)
               .attr("y", -85)
-              .text("Health Importance");                                                          //ÄNDRA LABEL HÄR
+              .text("Health");                                                          //ÄNDRA LABEL HÄR
             
              var legend = svg.selectAll(".legend")                     
               .data(color.domain())                                   
